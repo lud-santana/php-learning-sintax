@@ -1,13 +1,14 @@
 <?php
-/* AULA 2 exercício 1 Faça seu nome aparecer na tela 
-*/
+
+// AULA 2 exercício 1 Faça seu nome aparecer na tela 
+
 $nome = "Yuri Santana";
 
 echo ($nome);
 
-/*Exercício 2 Mostre Aprovado ou Reprovado dependendo
-da média final 
-*/
+//Exercício 2 Mostre Aprovado ou Reprovado dependendo
+//da média final 
+
 $notas = [7, 9, 3];
 $somaNotas = $notas[0] + $notas[1] + $notas[2];
 $mediaNotas = $somaNotas / 3;
@@ -23,15 +24,15 @@ if ($mediaNotas >= 6) {
 echo "Nome: $nome\n" . "Nota 1: $notas[0]\tNota 2: $notas[1]\tNota 3: $notas[2] \n";
 echo "Média final: $mediaNotas". "\t Situação: $teste";
 
-/*Exercício 3 Transforme um valor em Metros para Centímetros e mostre na tela
-*/
+//Exercício 3 Transforme um valor em Metros para Centímetros e mostre na tela
+//
 $metros = 5;
 $centimetros = $metros * 100;
 
 echo ("Metros: $metros; Centímetros: $centimetros");
 
-/* Exercício 4 Teste se o ano é bissexto
-*/
+// Exercício 4 Teste se o ano é bissexto
+//
 $ano = 2024;
 if (($ano % 4 == 0 && $ano % 100 != 0) || $ano % 400 == 0) {
     echo "$ano é bissexto.";
@@ -39,16 +40,16 @@ if (($ano % 4 == 0 && $ano % 100 != 0) || $ano % 400 == 0) {
     echo "$ano não é bissexto.";
 }
 
-/*Exercício 5 Transforme uma temperatura de Celsius para Fahrenheit
-*/
+//Exercício 5 Transforme uma temperatura de Celsius para Fahrenheit
+//
 $celsius = 20;
 $fahrenheit = (($celsius * 9) / 5) + 32;
 
 echo "- Celsius: $celsius °C
 - Fahrenheit: $fahrenheit °F";
 
-/*AULA 3 Exercício 1 Exiba todos os números ímpares de 0 a 100
-*/
+//AULA 3 Exercício 1 Exiba todos os números ímpares de 0 a 100
+//
 $numero = 0;
 $impares = 0;
 
@@ -63,8 +64,8 @@ for ($numero = 0; $numero <= 100; $numero++) {
 
 echo "De 0 a 100, temos $impares números ímpares!\n\n";
 
-/* Exercício 2 Calcule o IMC e exiba a Classificação
-*/
+// Exercício 2 Calcule o IMC e exiba a Classificação
+//
 $alturaEmMetros = $argv[1];
 $pesoEmKg = $argv[2];
 
@@ -86,9 +87,9 @@ if ($imc < 18.5) {
 echo "Seu IMC é $imc.\n";
 echo "Você está classificado(a) como \"$classificacao\".\n";
 
-/* Exercício 3 
-Dependendo da hora, exiba a respectiva saudação
-*/
+// Exercício 3 
+//Dependendo da hora, exiba a respectiva saudação
+//
 $hora = 30;
 
 if (($hora >= 18) && ($hora < 24)) {
@@ -102,3 +103,53 @@ if (($hora >= 18) && ($hora < 24)) {
 } else {
     echo "A medida de tempo fora reduzida a pó. Não sabemos que horas são!";
 }
+
+// AULA 4 Exercício 1
+//Remova os elementos duplicados de um array e 
+//exiba o array resultante
+//
+$lista_duplicada = [1, 2, 2, 3, 4, 4, 5];
+$lista_limpa = array_unique($lista_duplicada); 
+
+var_dump($lista_limpa);
+
+// Exercicio 2
+// Percorra uma lista de notas e informe se houve aprovação ou reprovação
+//
+$notas = [7, 7, 7, 7, 5];
+
+foreach ($notas as $nota) {
+    $resultado = $nota >= 6 ? "aprovado(a)" : "reprovado(a)";
+
+    echo "Esse(a) aluno(a) foi $resultado com a nota $nota \n";
+}
+
+// Exercício 3
+// Definir um array associativo (hashmap ou chave-valor) 
+// que representa uma conta bancária
+// (com titular e saldo) e exiba suas informações na tela.
+$conta = [
+    "titular" => "yuri",
+    "saldo" => 4000.0
+];
+
+echo "O titular " . $conta["titular"] . " possui saldo de R$" . $conta["saldo"] . "\n";
+
+// Exercício 4
+// Criar um array contendo nomes de familiares
+// e após sua criação adicionar mais elementos ao array
+//
+$nomes = [
+    "Joana",
+    "Carla",
+    "Leticia",
+    "Gabriela"
+];
+
+var_dump($nomes);
+
+array_push($nomes, "Gilse");
+var_dump($nomes);
+
+array_push($nomes, "Isabel");
+var_dump($nomes);
