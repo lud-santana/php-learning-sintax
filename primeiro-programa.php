@@ -1,5 +1,5 @@
 <?php
-/*
+
 // AULA 2 exercício 1 Faça seu nome aparecer na tela 
 
 $nome = "Yuri Santana";
@@ -158,7 +158,7 @@ var_dump($nomes);
 
 // Aula 5 Desafio
 // Criar um sistema de controle de saldo bancário
-//*/
+//
 $contaCliente = [
     "titular" => "Yuri",
     "saldo" => 1000.0
@@ -201,7 +201,7 @@ while ($escolha != 4) {
     } elseif ($escolha == 4) {
         echo "\nAté logo!";
         break;
-        
+
     } else {
         $escolha = 4;
         echo "\nOpção não reconhecida. Estamos encerrando a sessão. Até logo!";
