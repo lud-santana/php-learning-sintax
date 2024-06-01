@@ -1,5 +1,5 @@
 <?php
-
+/*
 // AULA 2 exercício 1 Faça seu nome aparecer na tela 
 
 $nome = "Yuri Santana";
@@ -148,8 +148,62 @@ $nomes = [
 
 var_dump($nomes);
 
+// $nomes[] = "Zé"; Funciona!!
+
 array_push($nomes, "Gilse");
 var_dump($nomes);
 
 array_push($nomes, "Isabel");
 var_dump($nomes);
+
+// Aula 5 Desafio
+// Criar um sistema de controle de saldo bancário
+//*/
+$contaCliente = [
+    "titular" => "Yuri",
+    "saldo" => 1000.0
+];
+$escolha = 0;
+
+echo "\n*******************\nOlá,\nTitular: " . $contaCliente["titular"] . "\n" .
+    "Saldo:\t" . $contaCliente["saldo"] . "\n" .
+    "*******************\n";
+
+while ($escolha != 4) {
+    $saque = 0;
+    $deposito = 0;
+
+    echo "1. Consultar saldo\n2. Sacar valor\n3. Depositar valor\n4. Sair\n\n";
+    echo "Opção: ";
+    $escolha = (int) fgets(STDIN);
+
+    if ($escolha == 1) {
+        echo "\n*********************\nO saldo atual é R$" . $contaCliente["saldo"] . "\n*********************\n";
+
+    } elseif($escolha == 2) {
+        echo "\nDigite o valor desejado para saque: R$";
+        $saque = (float) fgets(STDIN);
+
+        if ($contaCliente["saldo"] >= $saque) {
+            $contaCliente["saldo"] -= $saque;
+            echo "\nOperação de Saque realizada com sucesso.";
+        } else {
+            echo "\nNão há saldo suficiente para realizar esta operação.";
+        }
+
+    } elseif ($escolha == 3) {
+        echo "\nInforme o valor para depósito: R$";
+        $deposito = (float) fgets(STDIN);
+
+        $contaCliente["saldo"] += $deposito;
+        echo "\nOperação de Depósito realizada com sucesso.";
+
+    } elseif ($escolha == 4) {
+        echo "\nAté logo!";
+        break;
+        
+    } else {
+        $escolha = 4;
+        echo "\nOpção não reconhecida. Estamos encerrando a sessão. Até logo!";
+    }
+}
